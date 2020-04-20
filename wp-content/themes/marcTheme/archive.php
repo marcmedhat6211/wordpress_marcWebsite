@@ -3,17 +3,21 @@
     <?php 
         if(have_posts)
         {
-            the_post();
+            while(have_posts)
+            {
+                the_post();
     ?>
     <div class="row">
         <div class="col-md-6">
+            <a href="<?php echo get_the_permalink(); ?>">
+                <h2><?php the_title(); ?></h2>    
+            </a>
             <?php the_post_thumbnail("medium"); ?>
-            <?php the_category(); ?>
-            <h2><?php the_title(); ?></h2>
-            <p><?php the_content(); ?></p>
+            <br>
         </div>
     </div>
     <?php
+            }
         }
     ?>
 </div>
